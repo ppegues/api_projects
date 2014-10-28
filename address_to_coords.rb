@@ -17,17 +17,17 @@ url_safe_address = URI.encode(the_address)
 
 # Your code goes below. Hints:
 
-# url_of_data_we_want = "???"
-# raw_data = ???
-# parsed_data = ???
+url_of_data_we_want = "http://maps.googleapis.com/maps/api/geocode/json?address=5807+S+Woodlawn+Ave&sensor=false"
+raw_data = open(url).read
+parsed_data = JSON.parsed(raw_data)
 
 # ...
 
 # Let's store the latitude in a variable called 'the_latitude',
 #   and the longitude in a variable called 'the_longitude'.
 
-# the_latitude = ???
-# the_longitude = ???
+the_latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
+the_longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
 
 # Ultimately, we want the following line to work when uncommented:
 
