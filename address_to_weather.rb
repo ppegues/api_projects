@@ -18,12 +18,19 @@ url_weather = "https://api.forecast.io/forecast/187fcca57cfc9e4aea17eba531ee3407
 raw_data = open(url_weather).read
 parsed_data = JSON.parse(raw_data)
 
-the_temperature =
-the_hour_outlook =
-the_day_outlook =
+latitude = parsed_data["latitude"]
+longitude = parsed_data["longitude"]
+currently = parsed_data["currently"]
+hourly = parsed_data["hourly"]
+daily = parsed_data["daily"]
+
+
+the_temperature = currently["temperature"]
+the_hour_outlook = hourly["summary"]
+the_day_outlook = daily["summary"]
 
 # Ultimately, we want the following line to work when uncommented:
 
-# puts "The current temperature at #{the_address} is #{the_temperature} degrees."
+puts "The current temperature at #{the_address} is #{the_temperature} degrees."
 # puts "The outlook for the next hour is: #{the_hour_outlook}"
 # puts "The outlook for the next day is: #{the_day_outlook}"
